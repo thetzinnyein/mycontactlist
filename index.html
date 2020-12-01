@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact List</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container col-md-12">
+        <h1 class="text-center ">My Contact List</h1>
+        </i><input type="text" class="form-control" id="filterInput" placeholder="Enter Name ...">
+        <ul id="names" class="list-group text-center ">
+            <li class="list-group-item-primary">
+                <h4>A</h4>
+            </li>
+            <li class="list-group-item border-danger">
+                <a href="">Annie</a>
+            </li>
+            <li class="list-group-item border-danger">
+                <a href="">Anner</a>
+            </li>
+            <li class="list-group-item border-danger">
+                <a href="">Aero</a>
+            </li>
+            <li class="list-group-item border-danger">
+                <a href="">Albeth</a>
+            </li>
+
+            <li class="list-group-item-primary">
+                <h4>B</h4>
+            </li>
+            <li class="list-group-item border-danger">
+                <a href="">Behemoth</a>
+            </li>
+            <li class="list-group-item border-danger">
+                <a href="">Black Sabbth</a>
+            </li>
+            <li class="list-group-item border-danger">
+                <a href="">Bommer</a>
+            </li>
+            <li class="list-group-item border-danger">
+                <a href="">Backro</a>
+            </li>
+
+            <li class="list-group-item-primary">
+                <h4>C</h4>
+            </li>
+            <li class="list-group-item border-danger">
+                <a href="">Corona</a>
+            </li>
+            <li class="list-group-item border-danger">
+                <a href="">Corna</a>
+            </li>
+            <li class="list-group-item border-danger">
+                <a href="">Coreay</a>
+            </li>
+            <li class="list-group-item border-danger">
+                <a href="">Cear</a>
+            </li>
+
+        </ul>
+    </div>
+    <script>
+        //create variable for input id = filterInput
+        let filterInput = document.getElementById('filterInput');
+        //create addEventLister
+
+        filterInput.addEventListener('keyup', filterNames);
+
+        //Create function for filterName
+
+        function filterNames() {
+            //debug keyup function work
+
+            // console.log(1);
+
+            //get values of input
+
+            let filterValue = document.getElementById('filterInput').value.toUpperCase();
+
+            //debug filterinput change upper case
+            // console.log(filterValue);
+
+            //get name from ul id = names
+
+            let ul = document.getElementById('names');
+
+            //get item form li
+
+            let li = document.querySelectorAll('li.list-group-item');
+
+            //loop the item list 
+            for (let i = 0; i < li.length; i++) {
+                let a = li[i].getElementsByTagName('a')[0];
+                //condition
+
+                if (a.innerHTML.toUpperCase().indexOf(filterValue) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        };
+    </script>
+</body>
+
+</html>
